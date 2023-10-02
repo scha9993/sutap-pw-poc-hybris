@@ -1,12 +1,13 @@
 package com.sysco.brakes.qe.webui.page;
 
+import com.microsoft.playwright.Frame;
 import common.Constants;
 import com.sysco.brakes.qe.webui.util.HybrisUtil;
 import com.syscolab.qe.core.playwright.ui.SyscoLabPW;
 
 public class LoginPage extends HybrisUtil {
 
-    private String txtFldUserName = "//input[@name='username']";
+    private String txtFldUserName = "//input[@name='identifier']";
     private String txtFldPassword = "//input[@name='password']";
     private String btnUserIcon = "//button[@aria-label='Sign In']";
     private String btnSignIn = "//input[@type='submit']";
@@ -27,18 +28,17 @@ public class LoginPage extends HybrisUtil {
 
     public void clickUserIcon() throws InterruptedException {
         page.click(btnUserIcon);
-//        page.switchTabOnClick(page.findByLocator(btnUserIcon));
         Thread.sleep(5000);
     }
 
     public void enterUserName(){
-        page.switchToFrameByURL(iFrameSignIn);
-        page.frameClick(txtFldUserName);
+        page.switchToChildFrame("", 0);
         page.frameSendKeys(txtFldUserName, Constants.HYBRIS_USERNAME);
+
     }
 
     public void enterPassword(){
-        page.sendKeys(txtFldPassword, Constants.HYBRIS_PASSWORD);
+        page.frameSendKeys(txtFldPassword, Constants.HYBRIS_PASSWORD);
     }
 
     public void clickSignIn(){

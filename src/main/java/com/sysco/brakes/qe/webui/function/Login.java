@@ -11,7 +11,7 @@ public class Login extends LoginPage {
 
     public void loginToHybris() throws InterruptedException {
         navigateToHybris();
-        clickAgreePopup();
+//        clickAgreePopup();
         clickUserIcon();
         enterUserName();
         enterPassword();
