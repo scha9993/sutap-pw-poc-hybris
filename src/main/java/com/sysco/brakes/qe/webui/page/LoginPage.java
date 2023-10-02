@@ -1,6 +1,5 @@
 package com.sysco.brakes.qe.webui.page;
 
-import com.microsoft.playwright.Frame;
 import common.Constants;
 import com.sysco.brakes.qe.webui.util.HybrisUtil;
 import com.syscolab.qe.core.playwright.ui.SyscoLabPW;
@@ -8,11 +7,11 @@ import com.syscolab.qe.core.playwright.ui.SyscoLabPW;
 public class LoginPage extends HybrisUtil {
 
     private String txtFldUserName = "//input[@name='identifier']";
-    private String txtFldPassword = "//input[@name='password']";
+    private String txtFldPassword = "//input[@type='password']";
     private String btnUserIcon = "//button[@aria-label='Sign In']";
+    private String btnNext = "//input[@value='Next']";
     private String btnSignIn = "//input[@type='submit']";
     private String btnPopUpAgreeID = "#onetrust-accept-btn-handler";
-    private String iFrameSignIn = "#sso-iframe";
 
     public LoginPage(SyscoLabPW page) {
         super(page);
@@ -41,8 +40,12 @@ public class LoginPage extends HybrisUtil {
         page.frameSendKeys(txtFldPassword, Constants.HYBRIS_PASSWORD);
     }
 
+    public void clickNext(){
+        page.frameClick(btnNext);
+    }
+
     public void clickSignIn(){
-        page.click(btnSignIn);
+        page.frameClick(btnSignIn);
     }
 
 }

@@ -26,6 +26,7 @@ public class LoginTest extends BaseBrowser {
 
     @Test(priority = 0, description = "Verify logging to the Hybris")
     public void LoginTest() throws InterruptedException {
+        login.navigateToHybris();
         login.loginToHybris();
     }
 
