@@ -1,8 +1,8 @@
-package com.sysco.brakes.qe.webui.page;
+package com.sysco.brakes.qe.webui.page.loginPage;
 
-import common.Constants;
 import com.sysco.brakes.qe.webui.util.HybrisUtil;
 import com.syscolab.qe.core.playwright.ui.SyscoLabPW;
+import common.Constants;
 
 public class LoginPage extends HybrisUtil {
 
@@ -30,14 +30,14 @@ public class LoginPage extends HybrisUtil {
         Thread.sleep(5000);
     }
 
-    public void enterUserName(){
+    public void enterUserName(String userName){
         page.switchToChildFrame("", 0);
-        page.frameSendKeys(txtFldUserName, Constants.HYBRIS_USERNAME);
+        page.frameSendKeys(txtFldUserName, userName);
 
     }
 
-    public void enterPassword(){
-        page.frameSendKeys(txtFldPassword, Constants.HYBRIS_PASSWORD);
+    public void enterPassword(String password){
+        page.frameSendKeys(txtFldPassword, password);
     }
 
     public void clickNext(){

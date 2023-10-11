@@ -1,6 +1,6 @@
-package com.sysco.brakes.qe.webui.function;
+package com.sysco.brakes.qe.webui.function.login;
 
-import com.sysco.brakes.qe.webui.page.LoginPage;
+import com.sysco.brakes.qe.webui.page.loginPage.LoginPage;
 import com.syscolab.qe.core.playwright.ui.SyscoLabPW;
 
 public class Login extends LoginPage {
@@ -15,10 +15,11 @@ public class Login extends LoginPage {
         loginPage.navigateToHybris();
     }
 
-    public void loginToHybris() throws InterruptedException {
+    public void loginToHybris(String userName, String password) throws InterruptedException {
         loginPage.clickUserIcon();
-        loginPage.enterUserName();
+        loginPage.enterUserName(userName);
         loginPage.clickNext();
-        loginPage.enterPassword();
+        loginPage.enterPassword(password);
+        loginPage.clickSignIn();
     }
 }

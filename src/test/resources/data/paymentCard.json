@@ -1,0 +1,34 @@
+{
+  "Cards": [
+    {
+      "cardType": "MASTER_CARD_01",
+      "cardNumber": "5434600000000044",
+      "expiryDate": "05/24",
+      "expireMonth": "Apr",
+      "expireYear" : "2024",
+      "cvv": "123",
+      "cardName": "BrakeTest",
+      "secretCode": "555"
+    },
+    {
+      "cardType": "MASTER_CARD_02",
+      "cardNumber": "5569509867429955",
+      "expiryDate": "01/24",
+      "expireMonth": "Jan",
+      "expireYear" : "2024",
+      "cvv": "123",
+      "cardName": "BrakeTest",
+      "secretCode": "555"
+    },
+    {
+      "cardType": "VISA_PURCHASING_CARD_01",
+      "cardNumber": "4715059999000437",
+      "expiryDate": "12/24",
+      "expireMonth": "Dec",
+      "expireYear" : "2024",
+      "cvv": "123",
+      "cardName": "BrakeTest",
+      "secretCode": "555"
+    }
+  ]
+}

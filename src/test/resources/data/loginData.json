@@ -1,0 +1,18 @@
+{"users": [
+  {
+    "username": "paypagetest5@qa.com",
+    "password": "Welcome@123"
+  },
+  {
+    "username": "paypagetest7@qa.com",
+    "password": "Welcome123"
+  },
+  {
+    "username": "ListingsUser@qa.com",
+    "password": "brakes@123"
+  },{
+    "username": "chathura.jayasinghe",
+    "password": "brakes@123"
+  }
+]
+}
