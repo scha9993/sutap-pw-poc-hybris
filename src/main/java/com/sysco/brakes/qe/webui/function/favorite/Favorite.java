@@ -3,12 +3,11 @@ package com.sysco.brakes.qe.webui.function.favorite;
 import com.sysco.brakes.qe.webui.page.favorite.FavoritePage;
 import com.syscolab.qe.core.playwright.ui.SyscoLabPW;
 
-public class Favorite extends FavoritePage{
+public class Favorite{
 
     FavoritePage favoritePage;
 
     public Favorite(SyscoLabPW page) {
-        super(page);
         favoritePage = new FavoritePage(page);
     }
 

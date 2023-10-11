@@ -3,12 +3,11 @@ package com.sysco.brakes.qe.webui.function.headerPanel;
 import com.sysco.brakes.qe.webui.page.headerPanel.HeaderPanelPage;
 import com.syscolab.qe.core.playwright.ui.SyscoLabPW;
 
-public class HeaderPanel extends HeaderPanelPage {
+public class HeaderPanel {
 
     HeaderPanelPage headerPanelPage;
 
     public HeaderPanel(SyscoLabPW page) {
-        super(page);
         headerPanelPage = new HeaderPanelPage(page);
     }
 
@@ -24,5 +23,17 @@ public class HeaderPanel extends HeaderPanelPage {
 
     public void gotoCheckout(){
         headerPanelPage.clickCheckout();
+    }
+
+    public void switchAccount(){
+        headerPanelPage.clickUserIcon();
+        headerPanelPage.clickSwitchAccount();
+        headerPanelPage.selectAccount();
+        headerPanelPage.clickBack();
+        headerPanelPage.clickUserIcon();
+    }
+
+    public void clickHome(){
+        headerPanelPage.clickHome();
     }
 }

@@ -5,11 +5,15 @@ import com.syscolab.qe.core.playwright.ui.SyscoLabPW;
 
 public class HeaderPanelPage extends HybrisUtil {
 
-    private String btnUserIcon = "//button[@aria-label='My Brakes']";
+    private String btnUserIcon = "//div[@class='icon icon-user']";
     private String lnkMyFavourites = "//a[.='My favourites']";
     private String lnkMyDetails = "//a[.='My details']";
     private String lnkCart = "//a[@href='/cart']";
     private String lnkCheckout = "Checkout";
+    private String lnkSwitchAccount = "//button[.='Switch account']";
+    private String lnkBack = "//button[.='Back']";
+    private String chkBoxUserAccount = "1030581";
+    private String imgHome = "//img[@title='brakes-ampliance-logo.png']";
 
     public HeaderPanelPage(SyscoLabPW page) {
         super(page);
@@ -30,5 +34,24 @@ public class HeaderPanelPage extends HybrisUtil {
     public void clickCheckout(){
         page.clickFirst(page.findByText(lnkCheckout));
     }
+
+    public void clickSwitchAccount(){
+        page.click(lnkSwitchAccount);
+    }
+
+    public void selectAccount(){
+        page.switchToChildFrame("", 0);
+        page.frameCheckBoxClick(chkBoxUserAccount);
+    }
+
+    public void clickBack(){
+        page.switchToChildFrame("", 0);
+        page.frameClick(lnkBack);
+    }
+
+    public void clickHome(){
+        page.click(imgHome);
+    }
+
 
 }

@@ -3,7 +3,9 @@ import com.sysco.brakes.qe.webui.data.UserData;
 import com.sysco.brakes.qe.webui.function.favorite.Favorite;
 import com.sysco.brakes.qe.webui.function.headerPanel.HeaderPanel;
 import com.sysco.brakes.qe.webui.function.login.Login;
+import com.sysco.brakes.qe.webui.function.myAccount.MyAccount;
 import com.sysco.brakes.qe.webui.function.orderSummary.OrderSummary;
+import com.sysco.brakes.qe.webui.function.paymentPanel.PaymentPanel;
 import com.sysco.brakes.qe.webui.model.Card;
 import com.sysco.brakes.qe.webui.model.User;
 import com.syscolab.qe.core.playwright.ui.BaseBrowser;
@@ -25,6 +27,8 @@ public class OrderPlacementTest extends BaseBrowser {
     Favorite favorite;
     OrderSummary orderSummary;
     UserData userData;
+    MyAccount myAccount;
+    PaymentPanel paymentPanel;
 
     @BeforeClass(alwaysRun = true)
     public void setUp(ITestContext iTestContext) throws IOException {
@@ -41,7 +45,7 @@ public class OrderPlacementTest extends BaseBrowser {
     }
 
     @Test(priority = 1, description = "3115_7_b Validate Continue shopping CTA will be available to the customer allowing them to return to the Home Page")
-    public void ContinueShoppingCTAReturnsHomeTest() throws InterruptedException, IOException {
+    public void ContinueShoppingCTAReturnsHomeTest() throws InterruptedException {
         favorite = new Favorite(page);
         orderSummary = new OrderSummary(page);
         login.navigateToHybris();
@@ -51,6 +55,7 @@ public class OrderPlacementTest extends BaseBrowser {
         favorite.addFavoriteList("FavTest.SP22.0.0_2269.2_02");
         headerPanel.gotoCheckout();
         orderSummary.clickCheckout();
+        orderSummary.clickCheckout();
         orderSummary.placeOrder();
         orderSummary.clickCheckout();
 
@@ -59,14 +64,27 @@ public class OrderPlacementTest extends BaseBrowser {
 
     @Test(priority = 2, description = "SP4.0.0_776.1.2/776.2.1/776.2.3 - Verify GOT IT CTA Button")
     public void GotItCTATest() throws InterruptedException, IOException {
-        favorite = new Favorite(page);
+        myAccount = new MyAccount(page);
+        orderSummary = new OrderSummary(page);
+        paymentPanel = new PaymentPanel(page);
         login.navigateToHybris();
         User cardUser = userData.getUsers().get(1);
         CardData cardData = new CardData(Constants.TEST_DATA_PATH+"paymentCard.json");
+        Card updateCard;
         Card masterCard = cardData.getCards().get(0);
         Card visaCard = cardData.getCards().get(2);
         login.loginToHybris(cardUser.getUsername(), cardUser.getPassword());
+//        headerPanel.switchAccount();
+        headerPanel.clickHome();
         headerPanel.gotoMyDetails();
+        myAccount.clickPaymentCardTab();
+        if (paymentPanel.isMasterCard().equals(visaCard.getCardStarNumber())){
+            updateCard = masterCard;
+        }else{
+            updateCard = visaCard;
+        }
+        paymentPanel.updateCard(updateCard.getCardNo(), updateCard.getCardHolder(), updateCard.getExpiryDate(), updateCard.getCvv(), updateCard.getSecretCode());
+        myAccount.clickPaymentCardTab();
 
     }
 
