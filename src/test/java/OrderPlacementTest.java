@@ -1,11 +1,11 @@
-import com.google.gson.JsonObject;
+import com.sysco.brakes.qe.webui.data.CardData;
 import com.sysco.brakes.qe.webui.data.UserData;
 import com.sysco.brakes.qe.webui.function.favorite.Favorite;
 import com.sysco.brakes.qe.webui.function.headerPanel.HeaderPanel;
 import com.sysco.brakes.qe.webui.function.login.Login;
 import com.sysco.brakes.qe.webui.function.orderSummary.OrderSummary;
+import com.sysco.brakes.qe.webui.model.Card;
 import com.sysco.brakes.qe.webui.model.User;
-import com.sysco.brakes.qe.webui.util.JsonUtil;
 import com.syscolab.qe.core.playwright.ui.BaseBrowser;
 import com.syscolab.qe.core.playwright.ui.SyscoLabPW;
 import common.Constants;
@@ -58,10 +58,14 @@ public class OrderPlacementTest extends BaseBrowser {
     }
 
     @Test(priority = 2, description = "SP4.0.0_776.1.2/776.2.1/776.2.3 - Verify GOT IT CTA Button")
-    public void GotItCTATest() throws InterruptedException {
+    public void GotItCTATest() throws InterruptedException, IOException {
         favorite = new Favorite(page);
         login.navigateToHybris();
-//        login.loginToHybris();
+        User cardUser = userData.getUsers().get(1);
+        CardData cardData = new CardData(Constants.TEST_DATA_PATH+"paymentCard.json");
+        Card masterCard = cardData.getCards().get(0);
+        Card visaCard = cardData.getCards().get(2);
+        login.loginToHybris(cardUser.getUsername(), cardUser.getPassword());
         headerPanel.gotoMyDetails();
 
     }
