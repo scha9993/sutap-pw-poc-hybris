@@ -21,4 +21,9 @@ public class OrderSummary{
         orderSummaryPage.clickConfirm();
         this.clickCheckout();
     }
+
+    public void placeOrderWithPoReference(String poReference){
+        orderSummaryPage.enterPoReference(poReference);
+        orderSummaryPage.clickPlaceOrder();
+    }
 }

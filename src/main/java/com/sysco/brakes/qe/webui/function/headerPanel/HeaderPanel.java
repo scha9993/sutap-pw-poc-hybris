@@ -36,4 +36,12 @@ public class HeaderPanel {
     public void clickHome(){
         headerPanelPage.clickHome();
     }
+
+    public void searchProduct(String productCode){
+        headerPanelPage.search_product(productCode);
+    }
+
+    public void clickUserIcon(){
+        headerPanelPage.clickUserIcon();
+    }
 }

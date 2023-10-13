@@ -5,7 +5,7 @@ import com.syscolab.qe.core.playwright.ui.SyscoLabPW;
 
 public class HeaderPanelPage extends HybrisUtil {
 
-    private String btnUserIcon = "//div[@class='icon icon-user']";
+    private String btnUserIcon = "//button[@aria-label='My Brakes']";
     private String lnkMyFavourites = "//a[.='My favourites']";
     private String lnkMyDetails = "//a[.='My details']";
     private String lnkCart = "//a[@href='/cart']";
@@ -14,6 +14,8 @@ public class HeaderPanelPage extends HybrisUtil {
     private String lnkBack = "//button[.='Back']";
     private String chkBoxUserAccount = "1030581";
     private String imgHome = "//img[@title='brakes-ampliance-logo.png']";
+    private String txtFldsearchBar = "Search products...";
+    private String btnSearch = "//button[@aria-label='Search products...']";
 
     public HeaderPanelPage(SyscoLabPW page) {
         super(page);
@@ -22,7 +24,6 @@ public class HeaderPanelPage extends HybrisUtil {
     public void clickUserIcon(){
         page.click(btnUserIcon);
     }
-
     public void clickMyFavourites(){
         page.click(lnkMyFavourites);
     }
@@ -53,5 +54,9 @@ public class HeaderPanelPage extends HybrisUtil {
         page.click(imgHome);
     }
 
-
+    public void search_product(String searchText){
+        page.click(page.findByPlaceHolder(txtFldsearchBar));
+        page.typeInto(page.findByPlaceHolder(txtFldsearchBar),searchText);
+        page.click(page.findByLocator(btnSearch));
+    }
 }

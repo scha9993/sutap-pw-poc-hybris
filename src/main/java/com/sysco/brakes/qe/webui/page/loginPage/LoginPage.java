@@ -9,10 +9,11 @@ public class LoginPage extends HybrisUtil {
 
     private String txtFldUserName = "//input[@name='identifier']";
     private String txtFldPassword = "//input[@type='password']";
-    private String btnUserIcon = "//button[@aria-label='Sign In']";
+    private String btnUserIcon = "//button[@aria-label='Sign in']";
     private String btnNext = "//input[@value='Next']";
     private String btnSignIn = "//input[@type='submit']";
     private String btnPopUpAgreeID = "#onetrust-accept-btn-handler";
+    private String btnSignOut= "//button[@aria-label='Sign Out'] ";
 
     public LoginPage(SyscoLabPW page) {
         super(page);
@@ -46,7 +47,12 @@ public class LoginPage extends HybrisUtil {
 
     public void clickSignIn() throws InterruptedException {
         page.frameClick(btnSignIn);
-        Thread.sleep(120000);
+        Thread.sleep(20000);
+    }
+    public void clickSignOut() throws InterruptedException {
+        page.switchToChildFrame("", 0);
+        page.frameClick(btnSignOut);
+        Thread.sleep(20000);
     }
 
 }

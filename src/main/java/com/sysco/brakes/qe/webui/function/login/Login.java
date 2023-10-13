@@ -1,13 +1,16 @@
 package com.sysco.brakes.qe.webui.function.login;
 
+import com.sysco.brakes.qe.webui.page.headerPanel.HeaderPanelPage;
 import com.sysco.brakes.qe.webui.page.loginPage.LoginPage;
 import com.syscolab.qe.core.playwright.ui.SyscoLabPW;
 
 public class Login{
     LoginPage loginPage;
+    HeaderPanelPage headerPanelPage;
 
     public Login(SyscoLabPW page) {
         loginPage = new LoginPage(page);
+        headerPanelPage=new HeaderPanelPage(page);
     }
 
     public void navigateToHybris(){
@@ -20,5 +23,9 @@ public class Login{
         loginPage.clickNext();
         loginPage.enterPassword(password);
         loginPage.clickSignIn();
+    }
+    public void logout() throws InterruptedException {
+        headerPanelPage.clickUserIcon();
+        loginPage.clickSignOut();
     }
 }
