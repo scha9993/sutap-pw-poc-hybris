@@ -19,7 +19,6 @@ public class OrderSummary{
         orderSummaryPage.clickDeliveryDate();
         orderSummaryPage.selectDeliveryDate();
         orderSummaryPage.clickConfirm();
-        this.clickCheckout();
     }
 
     public void placeOrderWithPoReference(String poReference){

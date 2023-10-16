@@ -6,7 +6,7 @@ import org.python.antlr.ast.Continue;
 
 public class OrderConformationPage extends HybrisUtil {
 
-    private String btnContinue_Shopping = "//a[normalize-space()=,'Continue Shopping']";
+    private String btnContinue_Shopping = "//a[normalize-space()='Continue Shopping']";
     private String txtStockCheckMessage = "Please wait while we check our stock";
     private String txtOrderAmendedMessage = "Your order is being amended";
 
@@ -23,7 +23,7 @@ public class OrderConformationPage extends HybrisUtil {
     }
 
     public boolean isOrderAmendedMessageDisplayed(){
-        return page.elemVisibility(page.findByLocator(txtOrderAmendedMessage));
+        return page.elemVisibility(page.findByText(txtOrderAmendedMessage));
     }
 
     public void clickContinueShopping(){

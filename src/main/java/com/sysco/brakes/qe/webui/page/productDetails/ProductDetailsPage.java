@@ -12,8 +12,8 @@ public class ProductDetailsPage extends HybrisUtil {
 
     private String btnAdd = "//button[normalize-space()='Add']";
     private String txtFldQuantity = "//input[@aria-label='Quantity']";
-    private String btnReviewAmends = "";
-    private String btnResubmit = "";
+    private String btnReviewAmends = "//a[.='Review amends']";
+    private String btnResubmit = "//button[normalize-space()='Resubmit']";
     private String btnPlus = "";
 
     public ProductDetailsPage(SyscoLabPW page) {
@@ -30,11 +30,11 @@ public class ProductDetailsPage extends HybrisUtil {
     }
 
     public void click_btn_review_amends(){
-        page.click(btnReviewAmends);
+        page.click(page.findByLocator(btnReviewAmends));
     }
 
     public void click_resubmit(){
-        page.click(btnResubmit);
+        page.click(page.findByLocator(btnResubmit));
     }
 
     public void add_a_quantity_of_nth_product_to_cart(int index,int quantity){

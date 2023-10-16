@@ -13,7 +13,7 @@ public class LoginPage extends HybrisUtil {
     private String btnNext = "//input[@value='Next']";
     private String btnSignIn = "//input[@type='submit']";
     private String btnPopUpAgreeID = "#onetrust-accept-btn-handler";
-    private String btnSignOut= "//button[@aria-label='Sign Out'] ";
+    private String btnSignOut= "//a[.='Sign out']";
 
     public LoginPage(SyscoLabPW page) {
         super(page);
@@ -50,8 +50,7 @@ public class LoginPage extends HybrisUtil {
         Thread.sleep(20000);
     }
     public void clickSignOut() throws InterruptedException {
-        page.switchToChildFrame("", 0);
-        page.frameClick(btnSignOut);
+        page.click(page.findByLocator(btnSignOut));
         Thread.sleep(20000);
     }
 

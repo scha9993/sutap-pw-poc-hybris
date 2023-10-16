@@ -6,7 +6,7 @@ import com.syscolab.qe.core.playwright.ui.SyscoLabPW;
 public class OrderSummaryPage extends HybrisUtil {
 
    //private String btnCheckout = "Checkout";
-    private String btnCheckout = "//a[contains(normalize-space(), 'Checkout')]";
+    private String btnCheckout = "//a[contains(normalize-space(), 'Checkout') and contains(@class,'hidden-xs')]";
     private String btnNextAvailableDate = "//span[contains( @class,'flatpickr-day') and not(contains(@class,'disabled')) and not(contains(@class,'selected'))]";
     private String btnConfirmNewDate = "Confirm new delivery date";
     private String txtDeliveryDate = "//a[@data-id='delivery-calendar']";
