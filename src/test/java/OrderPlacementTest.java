@@ -60,6 +60,7 @@ public class OrderPlacementTest extends BaseBrowser {
         orderConfirmation=new OrderConfirmation(page);
         orderDetails =new OrderDetails(page);
         productDetails= new ProductDetails(page);
+        home= new Home(page);
 
         login.navigateToHybris();
         User favoriteUser = userData.getUsers().get(0);
@@ -75,13 +76,6 @@ public class OrderPlacementTest extends BaseBrowser {
         orderConfirmation.isOrderPlacementSuccess();
         orderConfirmation.clickContinue();
         home.isHomePageDisplayed();
-//        orderDetails.isOrderDetailsHeaderDisplayed();
-//        orderDetails.amendOrder();
-//        headerPanel.searchProduct("F 120847");
-//        productDetails.selectSearched_Product("120847");
-//        productDetails.addQuantity("5");
-//        productDetails.resubmit();
-//        orderConfirmation.isAmendedOrderSuccess();
         login.logout();
     }
 
