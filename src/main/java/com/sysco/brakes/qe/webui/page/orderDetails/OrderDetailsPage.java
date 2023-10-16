@@ -15,7 +15,7 @@ public class OrderDetailsPage extends HybrisUtil {
     }
 
     public void isInOrderDetailsPage(){
-        page.elemVisibility(page.findByLocator(txtOrderDetailsHeader));
+        page.click(page.findByLocator(txtOrderDetailsHeader));
     }
 
     public void clickAmendOrder(){
