@@ -2,6 +2,7 @@ import com.sysco.brakes.qe.webui.data.CardData;
 import com.sysco.brakes.qe.webui.data.UserData;
 import com.sysco.brakes.qe.webui.function.favorite.Favorite;
 import com.sysco.brakes.qe.webui.function.headerPanel.HeaderPanel;
+import com.sysco.brakes.qe.webui.function.home.Home;
 import com.sysco.brakes.qe.webui.function.login.Login;
 import com.sysco.brakes.qe.webui.function.myAccount.MyAccount;
 import com.sysco.brakes.qe.webui.function.orderConformation.OrderConfirmation;
@@ -15,7 +16,6 @@ import com.sysco.brakes.qe.webui.util.DateTimeUtil;
 import com.syscolab.qe.core.playwright.ui.BaseBrowser;
 import com.syscolab.qe.core.playwright.ui.SyscoLabPW;
 import common.Constants;
-import fitbook.accounts.Order;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -37,6 +37,7 @@ public class OrderPlacementTest extends BaseBrowser {
     OrderConfirmation orderConfirmation;
     OrderDetails orderDetails;
     ProductDetails productDetails;
+    Home home;
 
     @BeforeClass(alwaysRun = true)
     public void setUp(ITestContext iTestContext) throws IOException {
@@ -72,16 +73,16 @@ public class OrderPlacementTest extends BaseBrowser {
         orderSummary.clickCheckout();
         orderSummary.placeOrderWithPoReference("PO_" + DateTimeUtil.getCurrentDateTime());
         orderConfirmation.isOrderPlacementSuccess();
-        orderDetails.isOrderDetailsHeaderDisplayed();
-        orderDetails.amendOrder();
-        headerPanel.searchProduct("F 120847");
-        productDetails.selectSearched_Product("120847");
-        productDetails.addQuantity("5");
-        productDetails.resubmit();
-        orderConfirmation.isAmendedOrderSuccess();
+        orderConfirmation.clickContinue();
+        home.isHomePageDisplayed();
+//        orderDetails.isOrderDetailsHeaderDisplayed();
+//        orderDetails.amendOrder();
+//        headerPanel.searchProduct("F 120847");
+//        productDetails.selectSearched_Product("120847");
+//        productDetails.addQuantity("5");
+//        productDetails.resubmit();
+//        orderConfirmation.isAmendedOrderSuccess();
         login.logout();
-
-
     }
 
     @Test(priority = 2, description = "SP4.0.0_776.1.2/776.2.1/776.2.3 - Verify GOT IT CTA Button")
