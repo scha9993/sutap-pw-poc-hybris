@@ -29,4 +29,5 @@ public class OrderConformationPage extends HybrisUtil {
     public void clickContinueShopping(){
         page.click(page.findByLocator(btnContinue_Shopping));
     }
+
 }

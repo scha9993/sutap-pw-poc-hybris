@@ -1,5 +1,6 @@
 import com.sysco.brakes.qe.webui.data.CardData;
 import com.sysco.brakes.qe.webui.data.UserData;
+import com.sysco.brakes.qe.webui.function.boUnit.BOUnit;
 import com.sysco.brakes.qe.webui.function.favorite.Favorite;
 import com.sysco.brakes.qe.webui.function.headerPanel.HeaderPanel;
 import com.sysco.brakes.qe.webui.function.home.Home;
@@ -38,6 +39,7 @@ public class OrderPlacementTest extends BaseBrowser {
     OrderDetails orderDetails;
     ProductDetails productDetails;
     Home home;
+    BOUnit boUnit;
 
     @BeforeClass(alwaysRun = true)
     public void setUp(ITestContext iTestContext) throws IOException {
@@ -60,6 +62,7 @@ public class OrderPlacementTest extends BaseBrowser {
         orderConfirmation=new OrderConfirmation(page);
         orderDetails =new OrderDetails(page);
         productDetails= new ProductDetails(page);
+        home = new Home(page);
 
         login.navigateToHybris();
         User favoriteUser = userData.getUsers().get(0);
@@ -111,5 +114,21 @@ public class OrderPlacementTest extends BaseBrowser {
 
     }
 
+    @Test(priority = 3, description = "SP4.0.0_775.1/775.3.1/775.3.3/775.5/775.7.1/775.7.2/775.7.3/ - Verify Payment Card Is Nearly Expired\n" +
+            "        Banner and UPDATE CTA Are Available Underneath the Benefits Bar When Card Is About to Expire")
+    public void CardExpiryBannerTest() throws InterruptedException {
+        User expiringCardUser = userData.getUsers().get(4);
+        User bOUser = userData.getUsers().get(3);
+        boUnit = new BOUnit(page);
+        headerPanel = new HeaderPanel(page);
+        login = new Login(page);
+//        boUnit.navigateToBO();
+        boUnit.bOLogin(bOUser.getUsername(), bOUser.getPassword());
+        boUnit.setNearlyExpiredCardAtDefaultPaymentCardForB2BUnit("B2B Unit", bOUser.getAccountNumber(), DateTimeUtil.getCurrentYear(), DateTimeUtil.getCurrentMonth());
+        login.navigateToHybris();
+        login.loginToHybris(expiringCardUser.getUsername(), expiringCardUser.getPassword());
+        //Verify banner displayed
+        headerPanel.searchProduct("Cheese");
+    }
 
 }

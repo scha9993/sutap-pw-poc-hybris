@@ -1,18 +1,32 @@
 {"users": [
   {
     "username": "automation_bb_01@qa.com",
-    "password": "Welcome@123"
+    "password": "Welcome@123",
+    "accountNumber": "1030581"
   },
   {
     "username": "paypagetest7@qa.com",
-    "password": "Welcome123"
+    "password": "Welcome123",
+    "accountNumber": "1030581"
   },
   {
     "username": "ListingsUser@qa.com",
-    "password": "brakes@123"
+    "password": "brakes@123",
+    "accountNumber": "1030581"
   },{
-    "username": "chathura.jayasinghe",
-    "password": "brakes@123"
+    "username": "Sajini.Dayananda@syscolabs.com",
+    "password": "Laura@1828",
+    "accountNumber": "1030581"
+  },
+  {
+    "username": "MOVBRAKES@qa.com",
+    "password": "Hello@123",
+    "accountNumber": "1030581"
+  },
+  {
+    "username": "paypagetest6@qa.com",
+    "password": "Welcome@123",
+    "accountNumber": "1030581"
   }
 ]
 }

@@ -15,7 +15,7 @@ public class OrderSummary{
         orderSummaryPage.clickCheckout();
     }
 
-    public void placeOrder(){
+    public void placeOrder() {
         orderSummaryPage.clickDeliveryDate();
         orderSummaryPage.selectDeliveryDate();
         orderSummaryPage.clickConfirm();

@@ -25,7 +25,8 @@ public class UserData {
             JsonObject userObject = usersArray.get(i).getAsJsonObject();
             String username = userObject.get("username").getAsString();
             String password = userObject.get("password").getAsString();
-            users.add(new User(username, password));
+            String accountNumber = userObject.get("accountNumber").getAsString();
+            users.add(new User(username, password, accountNumber));
         }
     }
 

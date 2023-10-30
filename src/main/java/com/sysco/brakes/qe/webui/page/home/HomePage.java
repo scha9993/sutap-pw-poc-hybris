@@ -12,6 +12,7 @@ public class HomePage extends HybrisUtil {
     }
 
     public boolean isHomePageDisplayed(){
+        page.waitFor(5);
         return page.elemVisibility(page.findByLocator(btnViewMyOrders));
     }
 }

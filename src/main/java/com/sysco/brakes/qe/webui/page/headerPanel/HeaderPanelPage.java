@@ -12,7 +12,7 @@ public class HeaderPanelPage extends HybrisUtil {
     private String lnkCheckout = "Checkout";
     private String lnkSwitchAccount = "//button[.='Switch account']";
     private String lnkBack = "//button[.='Back']";
-    private String chkBoxUserAccount = "1030581";
+    private String chkBoxUserAccount = "//input[@checked and @value='1723095']";
     private String imgHome = "//img[@title='brakes-ampliance-logo.png']";
     private String txtFldsearchBar = "Search products...";
     private String btnSearch = "//button[@aria-label='Search products...']";

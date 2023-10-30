@@ -3,7 +3,6 @@ package com.sysco.brakes.qe.webui.page.loginPage;
 import com.sysco.brakes.qe.webui.util.HybrisUtil;
 import com.syscolab.qe.core.playwright.ui.SyscoLabPW;
 import common.Constants;
-import org.python.modules.thread.thread;
 
 public class LoginPage extends HybrisUtil {
 
@@ -34,7 +33,6 @@ public class LoginPage extends HybrisUtil {
     public void enterUserName(String userName){
         page.switchToChildFrame("", 0);
         page.frameSendKeys(txtFldUserName, userName);
-
     }
 
     public void enterPassword(String password){
@@ -47,11 +45,9 @@ public class LoginPage extends HybrisUtil {
 
     public void clickSignIn() throws InterruptedException {
         page.frameClick(btnSignIn);
-        Thread.sleep(20000);
     }
     public void clickSignOut() throws InterruptedException {
         page.click(page.findByLocator(btnSignOut));
-        Thread.sleep(20000);
     }
 
 }
