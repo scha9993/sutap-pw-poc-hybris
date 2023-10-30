@@ -18,4 +18,9 @@ public class Home {
     public String getCardExpiringBannerText(){
         return homePage.getCardExpiringBannerText();
     }
+
+    public void addXQuantityOfNthProduct(int n, String quantity){
+        homePage.addNthProduct(n);
+        homePage.enterQuantityForNthProduct(n, quantity);
+    }
 }

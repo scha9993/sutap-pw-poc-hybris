@@ -12,6 +12,8 @@ public class OrderSummaryPage extends HybrisUtil {
     private String txtDeliveryDate = "//a[@data-id='delivery-calendar']";
     private String txtPoReference = "checkout.purchaseordernumber";
     private String btnPlaceOrder = "checkout.summary.placeOrder";
+    private String imgPaymentCard = "//p[contains(text(),'Card number:')]/span[2]/span";
+
 
     public OrderSummaryPage(SyscoLabPW page) {
         super(page);
@@ -38,6 +40,14 @@ public class OrderSummaryPage extends HybrisUtil {
     }
     public void clickPlaceOrder(){
         page.click(page.findById(btnPlaceOrder));
+    }
+
+    public boolean isPlaceOrderButtonEnabled(){
+        return page.isEnabled(page.findById(btnPlaceOrder));
+    }
+
+    public boolean isCardDisabled(){
+        return String.valueOf(page.findByLocator(imgPaymentCard).getClass()).contains("cant-pay");
     }
 
 

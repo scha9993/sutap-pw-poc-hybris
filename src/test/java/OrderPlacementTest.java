@@ -123,15 +123,27 @@ public class OrderPlacementTest extends BaseBrowser {
         boUnit = new BOUnit(page);
         headerPanel = new HeaderPanel(page);
         home = new Home(page);
+        orderSummary = new OrderSummary(page);
+        orderConfirmation = new OrderConfirmation(page);
         boUnit.bOLogin(bOUser.getUsername(), bOUser.getPassword());
         boUnit.setNearlyExpiredCardAtDefaultPaymentCardForB2BUnit("B2B Unit", bOUser.getAccountNumber(), DateTimeUtil.getCurrentYear(), DateTimeUtil.getCurrentMonth());
         login.navigateToHybris();
         login.loginToHybris(expiringCardUser.getUsername(), expiringCardUser.getPassword());
-        //Verify banner displayed
         softAssert.assertEquals(home.getCardExpiringBannerText(), "Payment card is nearly expired. Update your card details ASAP.", "Payment card is nearly expired banner message is not correct.");
         headerPanel.searchProduct("Cheese");
-
-
+        home.addXQuantityOfNthProduct(0, "8");
+        home.addXQuantityOfNthProduct(1, "8");
+        headerPanel.gotoCheckout();
+        orderSummary.clickCheckout();
+        softAssert.assertTrue(orderSummary.isPlaceOrderButtonEnabled(), "Place order button is not enabled");
+        softAssert.assertFalse(orderSummary.isCardDisabled(), "Card is disabled");
+        orderSummary.placeOrder();
+        orderSummary.clickCheckout();
+        orderSummary.clickCheckout();
+        orderSummary.placeOrderWithPoReference("PO_" + DateTimeUtil.getCurrentDateTime());
+        orderConfirmation.isOrderPlacementSuccess();
+        orderConfirmation.clickContinue();
+        home.isHomePageDisplayed();
     }
 
 }
