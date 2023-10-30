@@ -21,7 +21,8 @@ public class OrderConfirmation {
         orderConformationPage.isContinueCtaDisplayed();
     }
 
-    public void clickContinue(){
+    public void clickContinue() throws InterruptedException {
         orderConformationPage.clickContinueShopping();
+        Thread.sleep(3000);
     }
 }

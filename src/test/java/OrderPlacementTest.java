@@ -17,6 +17,7 @@ import com.sysco.brakes.qe.webui.util.DateTimeUtil;
 import com.syscolab.qe.core.playwright.ui.BaseBrowser;
 import com.syscolab.qe.core.playwright.ui.SyscoLabPW;
 import common.Constants;
+import org.python.modules.thread.thread;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -62,7 +63,7 @@ public class OrderPlacementTest extends BaseBrowser {
         orderConfirmation=new OrderConfirmation(page);
         orderDetails =new OrderDetails(page);
         productDetails= new ProductDetails(page);
-        home = new Home(page);
+        home= new Home(page);
 
         login.navigateToHybris();
         User favoriteUser = userData.getUsers().get(0);
