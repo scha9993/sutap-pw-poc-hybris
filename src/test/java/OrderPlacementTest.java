@@ -122,8 +122,6 @@ public class OrderPlacementTest extends BaseBrowser {
         User bOUser = userData.getUsers().get(3);
         boUnit = new BOUnit(page);
         headerPanel = new HeaderPanel(page);
-        login = new Login(page);
-//        boUnit.navigateToBO();
         boUnit.bOLogin(bOUser.getUsername(), bOUser.getPassword());
         boUnit.setNearlyExpiredCardAtDefaultPaymentCardForB2BUnit("B2B Unit", bOUser.getAccountNumber(), DateTimeUtil.getCurrentYear(), DateTimeUtil.getCurrentMonth());
         login.navigateToHybris();

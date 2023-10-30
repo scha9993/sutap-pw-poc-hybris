@@ -12,15 +12,13 @@ public class DateTimeUtil {
         return currentUtcTime.format(formatter);
     }
 
-    public static String getCurrentMonth(){
-        LocalDateTime now = LocalDateTime.now(ZoneOffset.UTC);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy");
-        return now.format(formatter);
+    public static String getCurrentMonth() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM");
+        return LocalDateTime.now(ZoneOffset.UTC).format(formatter);
     }
 
-    public static String getCurrentYear(){
-        LocalDateTime now = LocalDateTime.now(ZoneOffset.UTC);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("mm");
-        return now.format(formatter);
+    public static String getCurrentYear() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy");
+        return LocalDateTime.now(ZoneOffset.UTC).format(formatter);
     }
 }

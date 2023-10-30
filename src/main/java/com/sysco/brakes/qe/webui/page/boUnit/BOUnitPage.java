@@ -47,12 +47,15 @@ public class BOUnitPage extends HybrisUtil {
     }
 
     public void backDateExpiryMonth(String currentMonth){
+        page.doubleClick(page.findByLocator(txtFldExpiryMonth));
         page.pressKeyBoardKey(page.findByLocator(txtFldExpiryMonth), "Backspace");
         page.typeInto(page.findByLocator(txtFldExpiryMonth), currentMonth);
     }
 
     public void backDateExpiryYear(String currentYear){
-        page.pressKeyBoardKey(page.findByLocator(txtFldExpiryYear), "Backspace");
+        page.doubleClick(page.findByLocator(txtFldExpiryYear));
+        page.typeInto(page.findByLocator(txtFldExpiryYear), "");
+//        page.pressKeyBoardKey(page.findByLocator(txtFldExpiryYear), "Backspace");
         page.typeInto(page.findByLocator(txtFldExpiryYear), currentYear);
     }
 
