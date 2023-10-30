@@ -54,8 +54,7 @@ public class BOUnitPage extends HybrisUtil {
 
     public void backDateExpiryYear(String currentYear){
         page.doubleClick(page.findByLocator(txtFldExpiryYear));
-        page.typeInto(page.findByLocator(txtFldExpiryYear), "");
-//        page.pressKeyBoardKey(page.findByLocator(txtFldExpiryYear), "Backspace");
+        page.pressKeyBoardKey(page.findByLocator(txtFldExpiryYear), "Backspace");
         page.typeInto(page.findByLocator(txtFldExpiryYear), currentYear);
     }
 
