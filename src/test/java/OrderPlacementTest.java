@@ -122,12 +122,16 @@ public class OrderPlacementTest extends BaseBrowser {
         User bOUser = userData.getUsers().get(3);
         boUnit = new BOUnit(page);
         headerPanel = new HeaderPanel(page);
+        home = new Home(page);
         boUnit.bOLogin(bOUser.getUsername(), bOUser.getPassword());
         boUnit.setNearlyExpiredCardAtDefaultPaymentCardForB2BUnit("B2B Unit", bOUser.getAccountNumber(), DateTimeUtil.getCurrentYear(), DateTimeUtil.getCurrentMonth());
         login.navigateToHybris();
         login.loginToHybris(expiringCardUser.getUsername(), expiringCardUser.getPassword());
         //Verify banner displayed
+        softAssert.assertEquals(home.getCardExpiringBannerText(), "Payment card is nearly expired. Update your card details ASAP.", "Payment card is nearly expired banner message is not correct.");
         headerPanel.searchProduct("Cheese");
+
+
     }
 
 }

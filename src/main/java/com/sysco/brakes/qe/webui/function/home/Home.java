@@ -14,4 +14,8 @@ public class Home {
     public void isHomePageDisplayed(){
         homePage.isHomePageDisplayed();
     }
+
+    public String getCardExpiringBannerText(){
+        return homePage.getCardExpiringBannerText();
+    }
 }
