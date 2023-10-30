@@ -25,4 +25,12 @@ public class OrderSummary{
         orderSummaryPage.enterPoReference(poReference);
         orderSummaryPage.clickPlaceOrder();
     }
+
+    public boolean isPlaceOrderButtonEnabled(){
+        return orderSummaryPage.isPlaceOrderButtonEnabled();
+    }
+
+    public boolean isCardDisabled(){
+        return orderSummaryPage.isCardDisabled();
+    }
 }

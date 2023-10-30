@@ -14,4 +14,13 @@ public class Home {
     public void isHomePageDisplayed(){
         homePage.isHomePageDisplayed();
     }
+
+    public String getCardExpiringBannerText(){
+        return homePage.getCardExpiringBannerText();
+    }
+
+    public void addXQuantityOfNthProduct(int n, String quantity){
+        homePage.addNthProduct(n);
+        homePage.enterQuantityForNthProduct(n, quantity);
+    }
 }
