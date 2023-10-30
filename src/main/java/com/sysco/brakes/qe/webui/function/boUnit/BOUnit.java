@@ -17,14 +17,15 @@ public class BOUnit {
         boLoginPage.navigateToBO();
     }
 
-    public void bOLogin(String username, String password){
+    public void bOLogin(String username, String password) throws InterruptedException {
         boLoginPage.navigateToBO();
+        Thread.sleep(3000);
         boLoginPage.enterUserName(username);
         boLoginPage.enterUserPassword(password);
         boLoginPage.clickSignIn();
     }
 
-    public void setNearlyExpiredCardAtDefaultPaymentCardForB2BUnit(String unit, String accountName, String currentYear, String currentMonth){
+    public void setNearlyExpiredCardAtDefaultPaymentCardForB2BUnit(String unit, String accountName, String currentYear, String currentMonth) throws InterruptedException {
         boUnitPage.searchB2BUnit(unit);
         boUnitPage.clickB2BUnitMenuItem();
         boUnitPage.viewB2BUnitDetails(accountName);
