@@ -46,20 +46,23 @@ public class BOUnitPage extends HybrisUtil {
         page.doubleClick(page.findByLocator(txtDefaultPaymentCard));
     }
 
-    public void backDateExpiryMonth(String currentMonth){
-        page.doubleClick(page.findByLocator(txtFldExpiryMonth));
-        page.pressKeyBoardKey(page.findByLocator(txtFldExpiryMonth), "Backspace");
-        page.typeInto(page.findByLocator(txtFldExpiryMonth), currentMonth);
+    public void backDateExpiryMonth(String currentMonth)throws InterruptedException{
+        page.pressKeyBoardKey(page.findByLocator(txtFldExpiryMonth), "Delete");
+        page.pressKeyBoardKey(page.findByLocator(txtFldExpiryMonth), "Delete");
+        Thread.sleep(2000);
+        page.sendKeys(page.findByLocator(txtFldExpiryMonth),currentMonth);
     }
 
-    public void backDateExpiryYear(String currentYear){
-        page.doubleClick(page.findByLocator(txtFldExpiryYear));
-        page.pressKeyBoardKey(page.findByLocator(txtFldExpiryYear), "Backspace");
-        page.typeInto(page.findByLocator(txtFldExpiryYear), currentYear);
+    public void backDateExpiryYear(String currentYear) throws InterruptedException {
+        page.pressKeyBoardKey(page.findByLocator(txtFldExpiryYear), "Delete");
+        page.pressKeyBoardKey(page.findByLocator(txtFldExpiryYear), "Delete");
+        Thread.sleep(2000);
+        page.sendKeys(page.findByLocator(txtFldExpiryYear), currentYear);
     }
 
-    public void clickSave(){
+    public void clickSave() throws InterruptedException {
         page.click(page.findByLocator(btnSave));
+        Thread.sleep(5000);
     }
 
 }
