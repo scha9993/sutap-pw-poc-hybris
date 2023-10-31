@@ -11,7 +11,7 @@ public class OrderSummary{
         orderSummaryPage = new OrderSummaryPage(page);
     }
 
-    public void clickCheckout(){
+    public void clickCheckout() throws InterruptedException {
         orderSummaryPage.clickCheckout();
     }
 

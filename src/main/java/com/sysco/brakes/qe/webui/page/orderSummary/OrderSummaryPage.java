@@ -19,8 +19,9 @@ public class OrderSummaryPage extends HybrisUtil {
         super(page);
     }
 
-    public void clickCheckout(){
+    public void clickCheckout() throws InterruptedException {
         page.clickFirst(page.findByLocator(btnCheckout));
+        Thread.sleep(4000);
     }
 
     public void clickDeliveryDate(){

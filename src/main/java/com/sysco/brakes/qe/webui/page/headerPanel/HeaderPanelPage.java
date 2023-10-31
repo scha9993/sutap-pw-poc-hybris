@@ -32,8 +32,9 @@ public class HeaderPanelPage extends HybrisUtil {
         page.click(lnkMyDetails);
     }
 
-    public void clickCheckout(){
+    public void clickCheckout() throws InterruptedException {
         page.clickFirst(page.findByText(lnkCheckout));
+        Thread.sleep(4000);
     }
 
     public void clickSwitchAccount(){

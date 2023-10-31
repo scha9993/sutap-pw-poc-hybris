@@ -21,7 +21,7 @@ public class HeaderPanel {
         headerPanelPage.clickMyDetails();
     }
 
-    public void gotoCheckout(){
+    public void gotoCheckout() throws InterruptedException {
         headerPanelPage.clickCheckout();
     }
 
