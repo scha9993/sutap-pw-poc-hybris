@@ -17,7 +17,6 @@ import com.sysco.brakes.qe.webui.util.DateTimeUtil;
 import com.syscolab.qe.core.playwright.ui.BaseBrowser;
 import com.syscolab.qe.core.playwright.ui.SyscoLabPW;
 import common.Constants;
-import org.python.modules.thread.thread;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -56,7 +55,7 @@ public class OrderPlacementTest extends BaseBrowser {
         softAssert = new SoftAssert();
     }
 
-    @Test(priority = 1, description = "3115_7_b Validate Continue shopping CTA will be available to the customer allowing them to return to the Home Page")
+    @Test(priority = 1, description = "3115_7_b Validate Continue shopping CTA will be available to the customer allowing them to return to the Home Page", invocationCount = 10)
     public void ContinueShoppingCTAReturnsHomeTest() throws InterruptedException {
         favorite = new Favorite(page);
         orderSummary = new OrderSummary(page);
@@ -116,7 +115,7 @@ public class OrderPlacementTest extends BaseBrowser {
     }
 
     @Test(priority = 3, description = "SP4.0.0_775.1/775.3.1/775.3.3/775.5/775.7.1/775.7.2/775.7.3/ - Verify Payment Card Is Nearly Expired\n" +
-            "        Banner and UPDATE CTA Are Available Underneath the Benefits Bar When Card Is About to Expire")
+            "        Banner and UPDATE CTA Are Available Underneath the Benefits Bar When Card Is About to Expire", invocationCount = 10)
     public void CardExpiryBannerTest() throws InterruptedException {
         User expiringCardUser = userData.getUsers().get(4);
         User bOUser = userData.getUsers().get(3);
