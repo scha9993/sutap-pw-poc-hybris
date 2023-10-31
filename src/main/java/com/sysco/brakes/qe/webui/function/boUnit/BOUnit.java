@@ -34,8 +34,18 @@ public class BOUnit {
             boUnitPage.openEditCardModal();
             boUnitPage.backDateExpiryYear(currentYear);
             boUnitPage.backDateExpiryMonth(currentMonth);
-            boUnitPage.clickSave();
+            if(boUnitPage.isSaveButtonEnabled()){
+                boUnitPage.clickSave();
+            }
+            else{
+                boUnitPage.clickClose();
+            }
+
         }
+    }
+
+    public void signOut() throws InterruptedException {
+        boUnitPage.logout();
     }
 
 }

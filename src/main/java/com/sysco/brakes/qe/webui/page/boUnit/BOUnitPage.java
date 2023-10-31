@@ -14,6 +14,9 @@ public class BOUnitPage extends HybrisUtil {
     private String txtFldExpiryMonth = "(//*[@title='Month']//..//..//*[@class='ye-input-text ye-com_hybris_cockpitng_editor_defaulttext z-textbox'])[2]";
     private String txtFldExpiryYear = "//span[@title='Valid to year']/../..//input[@class='ye-input-text ye-com_hybris_cockpitng_editor_defaulttext z-textbox']";
     private String btnSave = "//div[contains(@class,'yw-editor-area-creditcardpaymentinfo')]//button[text()='Save']";
+    private String btnUser = "//a[@data-label-key='userprofile.tooltip']";
+    private String btnSignOut = "//div[.='Sign Out']";
+    private String btnClose = "//div[@title='Close']";
 
     public BOUnitPage(SyscoLabPW page) {
         super(page);
@@ -63,6 +66,20 @@ public class BOUnitPage extends HybrisUtil {
     public void clickSave() throws InterruptedException {
         page.click(page.findByLocator(btnSave));
         Thread.sleep(5000);
+    }
+
+    public void logout() throws InterruptedException {
+        page.click(btnUser);
+        page.click(btnSignOut);
+        Thread.sleep(5000);
+    }
+
+    public void clickClose(){
+        page.click(page.findByLocator(btnClose));
+    }
+
+    public boolean isSaveButtonEnabled(){
+        return page.isEnabled(page.findByLocator(btnSave));
     }
 
 }
