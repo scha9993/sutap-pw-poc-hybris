@@ -18,7 +18,7 @@
         <dependency>
             <groupId>com.sysco.qe</groupId>
             <artifactId>sutap_core</artifactId>
-            <version>3.0.6_PWEnhance</version>
+            <version>3.0.6_PWEnhanced</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
