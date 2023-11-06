@@ -24,6 +24,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class OrderPlacementTest extends BaseBrowser {
     SyscoLabPW page;
@@ -44,7 +45,9 @@ public class OrderPlacementTest extends BaseBrowser {
     @BeforeClass(alwaysRun = true)
     public void setUp(ITestContext iTestContext) throws IOException {
         iTestContext.setAttribute("feature", "Playwright - PWSS");
-        page=getPage("Default");
+        ArrayList<String> options = new ArrayList<>();
+        options.add("--disable-web-security");
+        page=getPage("Default", options);
         login = new Login(page);
         headerPanel = new HeaderPanel(page);
         userData = new UserData(Constants.TEST_DATA_PATH+"loginData.json");
